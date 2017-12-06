@@ -26,5 +26,5 @@ Terminal=false
 Type=Application
 Categories=Utility;Application;" >> /usr/share/applications/firefox.desktop
 
-# should be finished/ launch firefox
+# Should be finished/ launch firefox
 firefox &
