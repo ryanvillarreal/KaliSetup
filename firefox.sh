@@ -13,6 +13,7 @@ wget http://ftp.mozilla.org/pub/firefox/releases/57.0/linux-x86_64/en-US/firefox
 tar xvjf firefox-57.0.tar.bz2
 rm firefox-57.0.tar.bz2
 ln -s /usr/local/firefox/firefox /usr/bin/firefox
+rm /usr/share/applications/firefox-esr.desktop
 
 # now add the item to the favorites bar and the menu
 echo "[Desktop Entry]
