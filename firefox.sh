@@ -24,7 +24,7 @@ Exec=/usr/bin/firefox
 Icon=/usr/local/firefox/browser/icons/mozicon128.png
 Terminal=false
 Type=Application
-Categories=Utility;Application;" >> /usr/share/applications/firefox.desktop
+Categories=Utility;Application;" > /usr/share/applications/firefox.desktop
 
 # Should be finished/ launch firefox
 firefox &
