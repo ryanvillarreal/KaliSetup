@@ -19,10 +19,12 @@ echo "# New Changes
 listen-address=127.0.0.1
 bind-interfaces
 address=/.local/127.0.0.1" >> /etc/dnsmasq.conf
+echo "prepend domain-name-servers 127.0.0.1;" >> /etc/dhcp/dhclient.conf
 systemctl enable dnsmasq
-echo "prepend domain-name-servers 127.0.0.1;" >> dhclient.conf
 
 # Restart networking
+dhclient
+systemctl restart dnsmasq
 service network-manager restart
 
 # Docker Pull down
@@ -37,6 +39,3 @@ docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro --name rev_pr
 docker run -d -e VIRTUAL_HOST=juice.local --net vuln --restart always bkimminich/juice-shop
 docker run -d -e VIRTUAL_HOST=mutillidae.local --net vuln --restart always citizenstig/nowasp
 docker run -d -e VIRTUAL_HOST=dvwa.local --net vuln --restart always citizenstig/dvwa
-
-# If you can figure out how to get the system to accept dnsmasq changes without reboot please let me know
-reboot
