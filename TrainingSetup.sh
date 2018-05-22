@@ -36,6 +36,6 @@ docker pull citizenstig/dvwa
 # Docker Config
 docker network create vuln
 docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro --name rev_proxy --net vuln --restart always jwilder/nginx-proxy
-docker run -d -e VIRTUAL_HOST=juice.local --net vuln --restart always bkimminich/juice-shop
-docker run -d -e VIRTUAL_HOST=mutillidae.local --net vuln --restart always citizenstig/nowasp
-docker run -d -e VIRTUAL_HOST=dvwa.local --net vuln --restart always citizenstig/dvwa
+docker run -d -e VIRTUAL_HOST=juice.local --name juiceshop --net vuln --restart always bkimminich/juice-shop
+docker run -d -e VIRTUAL_HOST=mutillidae.local --name mutillidae --net vuln --restart always citizenstig/nowasp
+docker run -d -e VIRTUAL_HOST=dvwa.local --name dvwa --net vuln --restart always citizenstig/dvwa
