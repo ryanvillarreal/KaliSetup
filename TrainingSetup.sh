@@ -18,13 +18,8 @@ apt-get install dnsmasq -y
 echo "# New Changes
 listen-address=127.0.0.1
 bind-interfaces
-address=/.local/127.0.0.1
-" >> /etc/dnsmasq.conf
+address=/.local/127.0.0.1" >> /etc/dnsmasq.conf
 systemctl enable dnsmasq
-systemctl restart dnsmasq
-
-# Restart Networking
-service network-manager restart
 
 # Docker Pull down
 docker pull jwilder/nginx-proxy:latest
@@ -38,3 +33,6 @@ docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro --name rev_pr
 docker run -d -e VIRTUAL_HOST=juice.local --net vuln --restart always bkimminich/juice-shop
 docker run -d -e VIRTUAL_HOST=mutillidae.local --net vuln --restart always citizenstig/nowasp
 docker run -d -e VIRTUAL_HOST=dvwa.local --net vuln --restart always citizenstig/dvwa
+
+# If you can figure out how to get the system to accept dnsmasq changes without reboot please let me know
+reboot
