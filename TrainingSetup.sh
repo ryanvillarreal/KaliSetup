@@ -20,6 +20,10 @@ listen-address=127.0.0.1
 bind-interfaces
 address=/.local/127.0.0.1" >> /etc/dnsmasq.conf
 systemctl enable dnsmasq
+echo "prepend domain-name-servers 127.0.0.1;" >> dhclient.conf
+
+# Restart networking
+service network-manager restart
 
 # Docker Pull down
 docker pull jwilder/nginx-proxy:latest
