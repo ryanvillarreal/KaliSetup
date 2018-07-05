@@ -8,9 +8,12 @@ git clone https://github.com/XjCrazy09/KaliSetup
 cd KaliSetup
 pwd
 
-# Set the screensize
-chmod +x screen.sh
-./screen.sh
+# update any already exisiting tools
+wpscan --update
+cd ~/Downloads/KaliSetup/
+chmod + x ./firefox.sh
+./firefox.sh
+pwd
 
 # Move to the download folder for the following tools
 cd ~/Downloads/
@@ -28,26 +31,3 @@ git clone https://github.com/BloodHoundAD/BloodHound.git
 git clone https://github.com/EmpireProject/Empire.git
 git clone https://github.com/guelfoweb/knock.git
 pwd
-
-# Setup How2
-git clone https://github.com/santinic/how2.git
-cd ~/Downloads/how2/
-ln -s /usr/bin/nodejs /usr/bin/node
-npm install -g how2
-cd .../
-pwd
-
-# Setup R2 for RE
-cd ~/Downloads/
-git clone https://github.com/radare/radare2.git
-cd radare2/sys
-./install.sh
-pwd
-
-# update any already exisiting tools
-wpscan --update
-cd ~/Downloads/KaliSetup/
-chmod + x ./firefox.sh
-./firefox.sh
-pwd
-
