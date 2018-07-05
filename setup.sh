@@ -14,7 +14,7 @@ pwd
 # update any already exisiting tools
 wpscan --update
 cd ~/Downloads/KaliSetup/
-chmod + x ./firefox.sh
+chmod +x ./firefox.sh
 ./firefox.sh
 pwd
 
