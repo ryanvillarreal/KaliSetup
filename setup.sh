@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# need to run this straight from github?  
+# curl https://raw.githubusercontent.com/ryanvillarreal/KaliSetup/master/setup.sh | bash
+
 # main file for running all other setup scripts and grabbing files
 apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 apt-get install gobuster git nodejs npm -y
