@@ -13,6 +13,8 @@ pwd
 
 # update any already exisiting tools
 wpscan --update
+/etc/init.d/postgresql start
+msfdb init
 cd ~/Downloads/KaliSetup/
 chmod +x ./firefox.sh
 ./firefox.sh
