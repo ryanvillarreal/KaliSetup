@@ -18,6 +18,9 @@ chmod + x ./firefox.sh
 ./firefox.sh
 pwd
 
+dconf write /org/gnome/shell/favorite-apps "['firefox.desktop','kali-burpsuite.desktop','org.gnome.Terminal.desktop']"
+
+
 # Move to the download folder for the following tools
 cd ~/Downloads/
 git clone https://github.com/danielmiessler/SecLists
