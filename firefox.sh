@@ -9,9 +9,9 @@ mv /usr/bin/firefox /usr/bin/firefox_bak
 # Get the new firefox and link everything up
 cd /usr/local
 pwd
-wget https://ftp.mozilla.org/pub/firefox/releases/60.0/linux-x86_64/en-US/firefox-60.0.tar.bz2
-tar xvjf firefox-60.0.tar.bz2
-rm firefox-60.0.tar.bz2
+wget https://ftp.mozilla.org/pub/firefox/releases/62.0/linux-x86_64/en-US/firefox-62.0.tar.bz2
+tar xvjf firefox-62.0.tar.bz2
+rm firefox-62.0.tar.bz2
 ln -s /usr/local/firefox/firefox /usr/bin/firefox
 rm /usr/share/applications/firefox-esr.desktop
 
