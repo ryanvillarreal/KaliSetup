@@ -1,15 +1,42 @@
 #!/bin/bash
 
-# This is a test of the git update. 
+host_setup(){
+	#function used to setup the Host machine.  
+	echo "# Which Field System is being setup?"
+	echo "# An example input is: 6"
+	echo -n "> "
+	read fieldSystemNum
+
+	echo "NG_FIELD_$fieldSystemNum" > /etc/hostname
+
+}
 
 openvpn_setup(){
 	# function used to setup the OpenVPN tunnel
 	echo "openvpn setup. "
+
+	apt get install openvpn -y 
+
+	# At this point the OpenVPN setup will need to be performed manually by logging into the admin portal
+	# downloading the appropriate OpenVPN field system certificate. 
+
+	# create the auth.txt file.  
+	# echo "field$fieldSystemNum
+	#       password" > /etc/openvpn/auth.txt
+
+	# add the following line to the field*.conf file.
+	# echo """
+	# auth-user-pass auth.txt
+	# persist-key
+	# persist-tun""" >> /etc/openvpn/field*.conf
 }
 
 health_check_setup(){
 	# function used to setup the cronjob that will do health checking on the OpenVPN tunnel.  
 	echo "cronjob setup."
+
+	# grab the serviceCheck.txt file and install it as a cronjob.  
+	
 }
 
 colors(){
@@ -110,4 +137,6 @@ modify_fde(){
 }
 
 ## Main Function
-list_devices
+#list_devices
+host_setup
+openvpn_setup
