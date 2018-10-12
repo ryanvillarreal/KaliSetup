@@ -36,7 +36,17 @@ health_check_setup(){
 	echo "cronjob setup."
 
 	# grab the serviceCheck.txt file and install it as a cronjob.  
-	
+	wget https://raw.githubusercontent.com/ryanvillarreal/KaliSetup/master/serviceCheck.sh
+
+	# make the file executable
+	chmod +x serviceCheck.sh
+
+	# move it to /usr/sbin/
+	mv serviceCheck.sh /usr/sbin/serviceCheck
+
+	# add the cronjob using the full path.  
+	crontab -l | { serviceCheck } | crontab -
+
 }
 
 colors(){
