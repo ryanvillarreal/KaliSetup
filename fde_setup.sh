@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This is a test of the git update. 
+
 openvpn_setup(){
 	# function used to setup the OpenVPN tunnel
 	echo "openvpn setup. "
@@ -32,7 +34,7 @@ list_devices(){
 	confirm_drive
 }
 
-confirm_drive(){
+confirm_drive(){ 
 	echo "Are you sure you want to use /dev/$inputDisk [yes/no]"
 	echo -n "> "
 	read inputEnd
