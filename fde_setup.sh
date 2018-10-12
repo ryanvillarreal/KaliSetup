@@ -7,7 +7,7 @@ host_setup(){
 	echo -n "> "
 	read fieldSystemNum
 
-	echo "NG_FIELD_$fieldSystemNum" > /etc/hostname
+	echo "ngfield$fieldSystemNum" > /etc/hostname
 
 }
 
@@ -45,7 +45,8 @@ health_check_setup(){
 	mv serviceCheck.sh /usr/sbin/serviceCheck
 
 	# add the cronjob using the full path.  
-	crontab -l | { serviceCheck } | crontab -
+	CMD="/usr/sbin/serviceCheck"
+	(crontab -l ; echo "* * * * * $CMD") 2>&1 | sed "s/no crontab for $(whoami)//"  | sort | uniq | crontab -
 
 }
 
