@@ -2,14 +2,17 @@
 
 openvpn_setup(){
 	# function used to setup the OpenVPN tunnel
+	echo "openvpn setup. "
 }
 
 health_check_setup(){
 	# function used to setup the cronjob that will do health checking on the OpenVPN tunnel.  
+	echo "cronjob setup."
 }
 
 colors(){
 	# function used to add a little color to the output.  
+	echo "use colors."
 }
 
 
@@ -66,14 +69,14 @@ setup_usb(){
 	e2label /dev/$tmpDrive KEYS
 
 	#if statement to check the file format and the label.  
-	if [[ $(blkid -o value --match-tag TYPE /dev/$tmpDrive) -eq "ext2" ]]
+	if [[ $(blkid -o value --match-tag TYPE /dev/$tmpDrive) -eq "ext2" ]]; then
 		echo "File Format: success"
 	else
 		echo "File format not correct. "
 	fi
 
 	#if statement to check label
-	if [[ $(blkid -o value --match-tag LABEL /dev/$tmpDrive) -eq "KEYS" ]]
+	if [[ $(blkid -o value --match-tag LABEL /dev/$tmpDrive) -eq "KEYS" ]]; then
 		echo "File Label: success"
 	else
 		echo "File Label not correct. "
@@ -87,13 +90,7 @@ setup_usb(){
 	chmod 400 /media/KEYS/keyfile
 
 	# check to make sure the folder is there and the drive is mounted. 
-	if [ ! -d "$DIRECTORY" ]; then
-  		mkdir /media/KEYS
-  	elif [ ! -f /media/KEYS/keyfile ]; then
-  		echo "Key isn't on the USB drive."
-  	else
-  		echo "Key successfully installed"
-	fi
+	
 
 	# setup the FDE config
 	modify_fde
