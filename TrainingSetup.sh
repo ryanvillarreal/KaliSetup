@@ -40,4 +40,5 @@ docker run -d -e VIRTUAL_HOST=juice.local --name juiceshop --net vuln --restart 
 docker run -d -e VIRTUAL_HOST=mutillidae.local --name mutillidae --net vuln --restart always citizenstig/nowasp
 docker run -d -e VIRTUAL_HOST=dvwa.local --name dvwa --net vuln --restart always citizenstig/dvwa
 
+# Launch the Juice Shop Automatically
 firefox juice.local &
