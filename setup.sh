@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# need to run this straight from github?  
+# need to run this straight from github?
 # curl https://raw.githubusercontent.com/ryanvillarreal/KaliSetup/master/setup.sh | bash
 
 # main file for running all other setup scripts and grabbing files
@@ -23,9 +23,12 @@ cd ~/Downloads/KaliSetup/
 python linux-lumberjack.py
 su root
 
+# install aptitude tools
+apt install tmux -y
+
 # Move to the download folder for the following tools
 cd ~/Downloads/
-git clone https://github.com/danielmiessler/SecLists
+#git clone https://github.com/danielmiessler/SecLists #uncomment if you are okay with a big download
 git clone https://github.com/ShawnDEvans/smbmap.git
 git clone https://github.com/jshaw87/Cheatsheets.git
 git clone https://github.com/SherifEldeeb/TinyMet.git
@@ -36,5 +39,4 @@ git clone https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
 git clone https://github.com/cortesi/mitmproxy.git
 git clone https://github.com/BloodHoundAD/BloodHound.git
 git clone https://github.com/EmpireProject/Empire.git
-git clone https://github.com/guelfoweb/knock.git
-
+curl -kL https://github.com/tizonia/tizonia-openmax-il/raw/master/tools/install.sh | bash
