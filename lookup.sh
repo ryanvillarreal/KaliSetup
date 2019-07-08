@@ -1,5 +1,6 @@
 #!/bin/bash
 
 while read -r ip; do
-	nslookup $ip | grep name | cut -d"=" -f2 | cut -d" " -f2
+	echo "Checking %ip";
+	nslookup $ip | grep name >> output.txt
 done < full_ip.txt
