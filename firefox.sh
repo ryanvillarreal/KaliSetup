@@ -4,22 +4,25 @@
 apt-get purge firefox
 apt-get autoclean
 unlink /usr/bin/firefox
-mv /usr/bin/firefox /usr/bin/firefox_bak
+mv /usr/bin/firefox /tmp/firefox_bak
+
+# get rid of firefox-esr too
+unlink /usr/bin/firefox-esr
+mv /usr/bin/firefox-esr /tmp/firefox-esr
 
 # Get the new firefox and link everything up
 cd /usr/local
-pwd
-wget https://ftp.mozilla.org/pub/firefox/releases/65.0/linux-x86_64/en-US/firefox-65.0.tar.bz2
-tar xvjf firefox-65.0.tar.bz2
-rm firefox-65.0.tar.bz2
+wget "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US" -O firefox-latest.tar.bz2
+tar xvjf firefox-latest.tar.bz2
+rm firefox-latest.tar.bz2
 ln -s /usr/local/firefox/firefox /usr/bin/firefox
 rm /usr/share/applications/firefox-esr.desktop
 
 # Now add the item to the favorites bar and the menu
 echo "[Desktop Entry]
-Version=65.0
+Version=latest
 Name=Firefox
-Comment=This is a test
+Comment=The latest Mozilla Firefox Browser
 Exec=/usr/bin/firefox
 Icon=/usr/local/firefox/browser/chrome/icons/default/default128.png
 Terminal=false
